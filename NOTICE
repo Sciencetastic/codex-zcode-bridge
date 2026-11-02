@@ -85,3 +85,6 @@ license texts are included under plugins/codex-zcode-bridge/licenses/:
     lib/utilsBundle.js. The Bridge's managed CDP path never uses that
     embedded MCP/ajv content, and the vendored bundle currently carries it
     untrimmed rather than modifying upstream's prebuilt file.
+
+Desktop live adapter additions: Copyright 2026 Sciencetastic contributors.
+Licensed under Apache-2.0. No proprietary ZCode archives are included.

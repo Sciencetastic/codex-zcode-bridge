@@ -1,0 +1,24 @@
+name: Experimental desktop live adapter
+on:
+  push:
+    paths: ['experimental/desktop-live/**', '.github/workflows/desktop-live.yml']
+  pull_request:
+    paths: ['experimental/desktop-live/**', '.github/workflows/desktop-live.yml']
+permissions:
+  contents: read
+jobs:
+  mock-tests:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node experimental/desktop-live/test-adapter.mjs
+      - run: python -m unittest discover -s experimental/desktop-live -p test_patch.py

@@ -16,6 +16,14 @@ Delegate coding tasks from Codex to your local ZCode Agent. Codex assigns tasks,
 
 ---
 
+## Live desktop chat experiment (this fork)
+
+Want external prompts and replies to appear in an open ZCode GUI chat? See the
+[experimental Windows desktop adapter](experimental/desktop-live/README.md).
+It uses the desktop's existing host, with a version-pinned local patch and rollback.
+This is separate from the standard MCP worker below; installing this marketplace
+alone does **not** enable it. Only the observed ZCode 3.17.1 build is supported.
+
 ## How it works
 
 ```text

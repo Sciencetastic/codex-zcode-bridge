@@ -34,3 +34,5 @@ ADR-001 到 ADR-003 只搬运权威文档里已经写明的结论。ADR-004 原�
 ## 命名
 
 新决策使用 `ADR-NNN-<slug>.md`，正文至少包含 Status、Date、Context、Decision、Rationale、Consequences。
+
+- [ADR-010](ADR-010-experimental-desktop-live.md)：本 fork 独立实验，绑定 Desktop 已有 host；不修改生产 MCP 合同。

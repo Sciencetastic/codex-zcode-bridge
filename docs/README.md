@@ -135,3 +135,8 @@ English readers start at [README.md](../README.md). This index is bilingual; the
 ## 浏览器与传输修复审查分支
 
 [公开审查说明](reports/2026-10-15-browser-and-transport-fixes.md)汇总修改、来源、历史实测与当前分支验证；决策为[ADR-007](decisions/ADR-007-browser-host-rpc.md)和[ADR-008](decisions/ADR-008-session-frames-and-large-interactions.md)。私人任务状态索引、日志和快照不进入本分支。
+
+## Fork experiment / 本 fork 实验
+
+- [Desktop live adapter](../experimental/desktop-live/README.md): opt-in Windows 3.17.1 local patch, separate from the production MCP path.
+- [ADR-010](decisions/ADR-010-experimental-desktop-live.md): 本 fork 的实验边界与验证范围。

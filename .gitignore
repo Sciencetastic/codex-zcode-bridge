@@ -19,3 +19,9 @@ docs/_draft/
 # session-resume-payload live verification artifacts (private data roots, fixtures, logs)
 .test-build/
 /local/
+
+# Never publish local desktop patch bundles/runtime secrets.
+__pycache__/
+*.asar
+*.asar.*
+connection.json
