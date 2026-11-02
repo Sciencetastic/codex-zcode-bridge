@@ -19,7 +19,10 @@ Phone viewing has **not** been tested. No remote terminal ownership is requested
 
 1. Create/select the intended chat in ZCode's GUI. Use its existing workspace directory and
    `sess_...` ID (these are technical identifiers, not the game/project directory).
-   If needed, inspect your local session metadata read-only; do not edit its index/database.
+   Run `python experimental/desktop-live/discover.py` to list recent GUI titles with their
+   session/workspace identifiers. This opens the observed local task index read-only and does
+   not read chat content or credentials. Use `--zcode-home` for a nonstandard profile directory.
+   Do not edit its index/database. Keep the discovery output private.
    Leave the model, tools and permission mode configured in the GUI as you want them.
 2. Run prepare with explicit paths below. Choose **new private directories outside this clone**
    for `--output` and `--state-dir`. Paths/IDs below are placeholders, not literal values.

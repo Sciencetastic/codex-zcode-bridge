@@ -6,11 +6,26 @@ import unittest
 from unittest.mock import patch
 import hashlib
 import patch as patcher
+from discover import list_chats
+import sqlite3
 from patch import rebuild, read_header, packed_files, integrity, SUPPORTED_SHA256, prepare
 from types import SimpleNamespace
 
 
 class ArchiveTests(unittest.TestCase):
+    def test_discovery_is_read_only_and_excludes_deleted_chats(self):
+        with tempfile.TemporaryDirectory() as directory:
+            db = Path(directory) / 'tasks.sqlite'
+            with sqlite3.connect(db) as connection:
+                connection.execute('CREATE TABLE tasks (task_id TEXT, title TEXT, workspace_path TEXT, deleted INTEGER, archived INTEGER, updated_at INTEGER)')
+                connection.executemany('INSERT INTO tasks VALUES (?,?,?,?,?,?)', [
+                    ('sess_visible', 'Disposable chat', '/fake/workspace', 0, 0, 1),
+                    ('sess_deleted', 'Deleted', '/fake/other', 1, 0, 2)])
+            connection.close()
+            before = db.read_bytes()
+            self.assertEqual(list_chats(db), [{'session_id': 'sess_visible', 'title': 'Disposable chat', 'workspace': '/fake/workspace'}])
+            self.assertEqual(db.read_bytes(), before)
+
     def test_install_rollback_and_update_guard(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
