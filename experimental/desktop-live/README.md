@@ -97,3 +97,11 @@ These tests use a fake host and synthetic ASAR; they do not contact a model or t
 The public generalized installer has been staged against the supported original locally, while the
 running proof uses the same adapter architecture from the earlier local install. No cross-build or
 fresh-machine certification is claimed. See [design decision](../../docs/decisions/ADR-010-experimental-desktop-live.md).
+
+Local validation, 2026-11-01: adapter mock tests and four Python tests passed;
+repository typecheck, build and plugin validation passed. The unchanged inherited full
+Windows suite finished with 505 passed, 1 failed, 1 cancelled and 2 skipped: a cross-process
+lock-contention test hit an EPERM rename, and a real process-tree termination test timed out.
+These are not claimed fixed by this add-on. No production Bridge source or bundle behavior
+was changed. The supported archive staging check preserved all 31,832 original packed files
+outside the intentionally appended main entry point.
